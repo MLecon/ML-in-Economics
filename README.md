@@ -18,10 +18,10 @@ bibliography: references.bib
 
 **Lectures:** Fri 9.00-11.00am in Meade Room, weeks 1-9  \
 **Classes:** (some) Thu 4.00-6.00pm in Room 7 (Lecture Block), weeks 3, 5-7, and 9.  \
-**Teaching Assistant:** Cheuk Ng (cfn24@cam.ac.uk)\
+**Teaching Assistant:** Cheuk Ng (cfn24@cam.ac.uk)
 
-**Course Website:** Moodle <!--<https://github.com/CoCoEcon-Lab/ML-in-Economics>\-->
-<!--**Github Classroom:** TBA\-->
+**Course Website:** <https://github.com/MLecon/ML-in-Economics> \
+**Assignment Submission:** [Github Classroom](https://classroom.github.com/classrooms/195107486-machine-learning-in-economics-2025)\
 **Readings:** [Zotero Group Library](https://www.zotero.org/groups/ml_econ)\
 **Recordings of further interest:** [Youtube Playlist](https://youtube.com/playlist?list=PLo8op7DIq2yhVzg8sUVAc36PRDZVOw6GD&si=ZV1YOyqJCbzlFdF9)
 
