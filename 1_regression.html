@@ -264,7 +264,7 @@ Stefan Bucher
 </section>
 <section id="scikit-learn-1" class="slide level2">
 <h2>scikit-learn</h2>
-<div id="7294c9d5" class="cell" data-execution_count="2">
+<div id="5af8a409" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb1-2"><a href=""></a>model <span class="op">=</span> LinearRegression()</span>
 <span id="cb1-3"><a href=""></a>model.fit(X_train, y_train)</span>
@@ -273,7 +273,7 @@ Stefan Bucher
 <pre><code>546.1898661888232 152.05949984245817</code></pre>
 </div>
 </div>
-<div id="5ea707f7" class="cell" data-execution_count="3">
+<div id="638f880f" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Text(0, 0.5, 'Diabetes Risk')</code></pre>
 </div>
@@ -374,7 +374,7 @@ v_{t+1} &amp;\leftarrow \gamma v_t + (1-\gamma) \left(\sum_{i\in B_t} \nabla_{\p
 </section>
 <section id="setup" class="slide level2">
 <h2>Setup</h2>
-<div id="7de7fa95" class="cell" data-execution_count="4">
+<div id="07eedf78" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> torch</span>
 <span id="cb4-2"><a href=""></a><span class="im">from</span> torch <span class="im">import</span> nn</span>
 <span id="cb4-3"><a href=""></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
@@ -399,7 +399,7 @@ v_{t+1} &amp;\leftarrow \gamma v_t + (1-\gamma) \left(\sum_{i\in B_t} \nabla_{\p
 <section id="tensors" class="slide level2">
 <h2>Tensors</h2>
 <p>Tensors “live” on a device</p>
-<div id="48b37b58" class="cell" data-execution_count="5">
+<div id="3aaec864" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>X_train <span class="op">=</span> torch.tensor(X.values, dtype<span class="op">=</span>torch.float32).to(DEVICE)</span>
 <span id="cb5-2"><a href=""></a>y_train <span class="op">=</span> torch.tensor(y.values, dtype<span class="op">=</span>torch.float32).to(<span class="st">"cpu"</span>)</span>
 <span id="cb5-3"><a href=""></a><span class="bu">print</span>(X_train.device)</span>
@@ -413,7 +413,7 @@ cpu</code></pre>
 </section>
 <section id="the-previous-regression" class="slide level2">
 <h2>The Previous Regression</h2>
-<div id="4f1aa32a" class="cell" data-execution_count="6">
+<div id="2b451ef7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>solution <span class="op">=</span> torch.linalg.lstsq(X_train, y_train)</span>
 <span id="cb7-2"><a href=""></a>coefficients <span class="op">=</span> solution.solution[:<span class="op">-</span><span class="dv">1</span>].flatten()  <span class="co"># All coefficients except the intercept</span></span>
 <span id="cb7-3"><a href=""></a>intercept <span class="op">=</span> solution.solution[<span class="op">-</span><span class="dv">1</span>].item()  <span class="co"># Intercept</span></span>
@@ -425,7 +425,7 @@ cpu</code></pre>
 </section>
 <section id="the-previous-regression-1" class="slide level2">
 <h2>The Previous Regression</h2>
-<div id="f03ed49d" class="cell" data-execution_count="7">
+<div id="2153606e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="kw">class</span> LinearRegressionModel(nn.Module):</span>
 <span id="cb9-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_dim):</span>
 <span id="cb9-3"><a href=""></a>        <span class="bu">super</span>(LinearRegressionModel, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
@@ -459,50 +459,48 @@ cpu</code></pre>
 <span id="cb9-31"><a href=""></a>    <span class="cf">if</span> param.requires_grad:</span>
 <span id="cb9-32"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>param<span class="sc">.</span>data<span class="sc">.</span>numpy()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch [1000/15000], Loss: 23512.7363</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Epoch [2000/15000], Loss: 18970.3828
-Epoch [3000/15000], Loss: 15261.6172
-Epoch [4000/15000], Loss: 12285.7012
-Epoch [5000/15000], Loss: 9972.1592
-Epoch [6000/15000], Loss: 8262.6631
-Epoch [7000/15000], Loss: 7096.2446
-Epoch [8000/15000], Loss: 6396.2725
-Epoch [9000/15000], Loss: 6058.5688
-Epoch [10000/15000], Loss: 5948.3774
-Epoch [11000/15000], Loss: 5930.7095
-Epoch [12000/15000], Loss: 5929.8892
+<pre><code>Epoch [1000/15000], Loss: 23548.6562
+Epoch [2000/15000], Loss: 19000.9688
+Epoch [3000/15000], Loss: 15287.0059
+Epoch [4000/15000], Loss: 12306.0742
+Epoch [5000/15000], Loss: 9987.7646
+Epoch [6000/15000], Loss: 8273.8408
+Epoch [7000/15000], Loss: 7103.4570
+Epoch [8000/15000], Loss: 6400.1992
+Epoch [9000/15000], Loss: 6060.1445
+Epoch [10000/15000], Loss: 5948.7305
+Epoch [11000/15000], Loss: 5930.7358
+Epoch [12000/15000], Loss: 5929.8906
 Epoch [13000/15000], Loss: 5929.8848
 Epoch [14000/15000], Loss: 5929.8848
 Epoch [15000/15000], Loss: 5929.8848
-linear.weight: [[ 6.2254177e-05  9.0556437e-05  7.3013405e-05  8.4089523e-05
-   1.1418942e-04  8.4062820e-05 -9.3562230e-05  5.5338685e-05
-   9.0125468e-05  6.6617809e-05  7.6141724e+01]]
-linear.bias: [75.991234]</code></pre>
+linear.weight: [[-9.74350842e-05 -1.07022366e-04 -1.02327169e-04 -1.25800885e-04
+  -5.42839625e-05 -1.21582372e-04  8.43605812e-05 -5.22255141e-05
+  -6.28383641e-05 -7.02300604e-05  7.60281372e+01]]
+linear.bias: [76.10482]</code></pre>
 </div>
 </div>
 </section>
 <section id="datasets" class="slide level2">
 <h2>Datasets</h2>
-<div id="c87af0a9" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>training_data <span class="op">=</span> datasets.CIFAR10(</span>
-<span id="cb12-2"><a href=""></a>    root<span class="op">=</span><span class="st">"data"</span>,  <span class="co"># path where the images will be stored</span></span>
-<span id="cb12-3"><a href=""></a>    train<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb12-4"><a href=""></a>    download<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb12-5"><a href=""></a>    transform<span class="op">=</span>ToTensor()</span>
-<span id="cb12-6"><a href=""></a>    )</span>
-<span id="cb12-7"><a href=""></a>test_data <span class="op">=</span> datasets.CIFAR10(</span>
-<span id="cb12-8"><a href=""></a>    root<span class="op">=</span><span class="st">"data"</span>,</span>
-<span id="cb12-9"><a href=""></a>    train<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb12-10"><a href=""></a>    download<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb12-11"><a href=""></a>    transform<span class="op">=</span>ToTensor()</span>
-<span id="cb12-12"><a href=""></a>    )</span>
-<span id="cb12-13"><a href=""></a>image, label <span class="op">=</span> training_data[<span class="dv">7</span>]</span>
-<span id="cb12-14"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Label: </span><span class="sc">{</span>training_data<span class="sc">.</span>classes[label]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb12-15"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Image size: </span><span class="sc">{</span>image<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb12-16"><a href=""></a>plt.imshow(image.permute(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>)) <span class="co"># imshow expects channel order Height x Width x Color(RGB)</span></span>
-<span id="cb12-17"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a375f471" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>training_data <span class="op">=</span> datasets.CIFAR10(</span>
+<span id="cb11-2"><a href=""></a>    root<span class="op">=</span><span class="st">"data"</span>,  <span class="co"># path where the images will be stored</span></span>
+<span id="cb11-3"><a href=""></a>    train<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-4"><a href=""></a>    download<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-5"><a href=""></a>    transform<span class="op">=</span>ToTensor()</span>
+<span id="cb11-6"><a href=""></a>    )</span>
+<span id="cb11-7"><a href=""></a>test_data <span class="op">=</span> datasets.CIFAR10(</span>
+<span id="cb11-8"><a href=""></a>    root<span class="op">=</span><span class="st">"data"</span>,</span>
+<span id="cb11-9"><a href=""></a>    train<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb11-10"><a href=""></a>    download<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-11"><a href=""></a>    transform<span class="op">=</span>ToTensor()</span>
+<span id="cb11-12"><a href=""></a>    )</span>
+<span id="cb11-13"><a href=""></a>image, label <span class="op">=</span> training_data[<span class="dv">7</span>]</span>
+<span id="cb11-14"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Label: </span><span class="sc">{</span>training_data<span class="sc">.</span>classes[label]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-15"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Image size: </span><span class="sc">{</span>image<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-16"><a href=""></a>plt.imshow(image.permute(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>)) <span class="co"># imshow expects channel order Height x Width x Color(RGB)</span></span>
+<span id="cb11-17"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Label: horse
 Image size: torch.Size([3, 32, 32])</code></pre>
@@ -518,29 +516,38 @@ Image size: torch.Size([3, 32, 32])</code></pre>
 </section>
 <section id="data-loader" class="slide level2">
 <h2>Data Loader</h2>
-<div id="6fb2146c" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="co"># Data Loader for Batching</span></span>
-<span id="cb14-2"><a href=""></a><span class="kw">def</span> seed_worker(worker_id):</span>
-<span id="cb14-3"><a href=""></a>  worker_seed <span class="op">=</span> torch.initial_seed() <span class="op">%</span> <span class="dv">2</span><span class="op">**</span><span class="dv">32</span></span>
-<span id="cb14-4"><a href=""></a>  numpy.random.seed(worker_seed)</span>
-<span id="cb14-5"><a href=""></a>  random.seed(worker_seed)</span>
-<span id="cb14-6"><a href=""></a>g_seed <span class="op">=</span> torch.Generator()</span>
-<span id="cb14-7"><a href=""></a>g_seed.manual_seed(torch.initial_seed() <span class="op">%</span> <span class="dv">2</span><span class="op">**</span><span class="dv">32</span>)</span>
-<span id="cb14-8"><a href=""></a></span>
-<span id="cb14-9"><a href=""></a>train_dataloader <span class="op">=</span> DataLoader(training_data, batch_size<span class="op">=</span><span class="dv">64</span>, shuffle<span class="op">=</span><span class="va">True</span>, num_workers<span class="op">=</span><span class="dv">2</span>, worker_init_fn<span class="op">=</span>seed_worker, generator<span class="op">=</span>g_seed)</span>
-<span id="cb14-10"><a href=""></a>test_dataloader <span class="op">=</span> DataLoader(test_data,  batch_size<span class="op">=</span><span class="dv">64</span>, shuffle<span class="op">=</span><span class="va">True</span>, num_workers<span class="op">=</span><span class="dv">2</span>, worker_init_fn<span class="op">=</span>seed_worker, generator<span class="op">=</span>g_seed)</span>
-<span id="cb14-11"><a href=""></a></span>
-<span id="cb14-12"><a href=""></a><span class="co"># Load the next batch</span></span>
-<span id="cb14-13"><a href=""></a>batch_images, batch_labels <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(train_dataloader))</span>
-<span id="cb14-14"><a href=""></a><span class="bu">print</span>(<span class="st">'Batch size:'</span>, batch_images.shape)</span>
-<span id="cb14-15"><a href=""></a>plt.imshow(batch_images[<span class="dv">0</span>].permute(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
-<span id="cb14-16"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f946cd90" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># Data Loader for Batching</span></span>
+<span id="cb13-2"><a href=""></a><span class="kw">def</span> seed_worker(worker_id):</span>
+<span id="cb13-3"><a href=""></a>  worker_seed <span class="op">=</span> torch.initial_seed() <span class="op">%</span> <span class="dv">2</span><span class="op">**</span><span class="dv">32</span></span>
+<span id="cb13-4"><a href=""></a>  numpy.random.seed(worker_seed)</span>
+<span id="cb13-5"><a href=""></a>  random.seed(worker_seed)</span>
+<span id="cb13-6"><a href=""></a>g_seed <span class="op">=</span> torch.Generator()</span>
+<span id="cb13-7"><a href=""></a>g_seed.manual_seed(torch.initial_seed() <span class="op">%</span> <span class="dv">2</span><span class="op">**</span><span class="dv">32</span>)</span>
+<span id="cb13-8"><a href=""></a></span>
+<span id="cb13-9"><a href=""></a>train_dataloader <span class="op">=</span> DataLoader(training_data, batch_size<span class="op">=</span><span class="dv">64</span>, shuffle<span class="op">=</span><span class="va">True</span>, num_workers<span class="op">=</span><span class="dv">2</span>, worker_init_fn<span class="op">=</span>seed_worker, generator<span class="op">=</span>g_seed)</span>
+<span id="cb13-10"><a href=""></a>test_dataloader <span class="op">=</span> DataLoader(test_data,  batch_size<span class="op">=</span><span class="dv">64</span>, shuffle<span class="op">=</span><span class="va">True</span>, num_workers<span class="op">=</span><span class="dv">2</span>, worker_init_fn<span class="op">=</span>seed_worker, generator<span class="op">=</span>g_seed)</span>
+<span id="cb13-11"><a href=""></a></span>
+<span id="cb13-12"><a href=""></a><span class="co"># Load the next batch</span></span>
+<span id="cb13-13"><a href=""></a>batch_images, batch_labels <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(train_dataloader))</span>
+<span id="cb13-14"><a href=""></a><span class="bu">print</span>(<span class="st">'Batch size:'</span>, batch_images.shape)</span>
+<span id="cb13-15"><a href=""></a>plt.imshow(batch_images[<span class="dv">0</span>].permute(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb13-16"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="pytorch-example-using-adam-on-cifar-10" class="slide level2">
-<h2>PyTorch Example using Adam on CIFAR-10</h2>
 </section></section>
 <section>
+<section id="measuring-performance" class="title-slide slide level1 center">
+<h1>Measuring Performance</h1>
+<p><span class="citation" data-cites="prince2023">Prince (<a href="#/references" role="doc-biblioref" onclick="">2023, chap. 8</a>)</span></p>
+</section>
+<section id="training-and-test-error" class="slide level2">
+<h2>Training and Test Error</h2>
+
+<img data-src="img/UDL/Chap08/PerfMNIST1DResults.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="error-sources" class="slide level2">
+<h2>Error Sources</h2>
+
+<img data-src="img/UDL/Chap08/PerfNoiseBiasVariance.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
 
 </section>
 <section>
