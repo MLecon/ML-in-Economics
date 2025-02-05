@@ -80,13 +80,15 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 -   Linear Regression: Minimizing mean-squared error using matrix notation [@prince2023, Chapter 2]
 -   Optimization and stochastic gradient descent [@prince2023, Chapter 6]
 -   Model Evaluation: Bias-variance tradeoff and overfitting, training/test set and cross-validation, double descent [@prince2023, Chapter 8]
--   Regularization: Ridge and Lasso regression [@prince2023, Chapter 9]
 -   sklearn
+-   PyTorch
 
 ### Classification and Logistic Regression - Week 3 (7 February)
 
+-   Multinomial Logit and Discrete Choice 
+-   Loss functions [@prince2023, Chapter 5]
+-   Regularization [@prince2023, Chapter 9]
 -   Multi-Layer Perceptron
--   Multinomial Logit and Discrete Choice [@prince2023, Chapter 5]
 -   Support Vector Machines (SVM)
 -   Decision/classification trees
 -   Ensemble Methods: Boosting and bagging, random forests, gradient boosting machines
@@ -97,7 +99,6 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 -   Feedforward neural networks (=multi-layer perceptrons) [@prince2023, Chapter 4]
 -   Backprop and stochastic gradient descent [@prince2023, Chapter 7]
 -   Convolutional neural networks (CNN) [@prince2023, Chapter 10]
--   pytorch
 
 ## Part 2: Unsupervised Machine Learning
 
