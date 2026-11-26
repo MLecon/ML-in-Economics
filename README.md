@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning in Economics (D200)"
-subtitle: "Syllabus (Lent 2026)"
+subtitle: "Syllabus (Lent 2027)"
 author: "Dr. Stefan Bucher"
 format: 
   pdf: 
@@ -12,12 +12,12 @@ bibliography: auxiliary/references.bib
 **University of Cambridge** **Faculty of Economics**
 
 **Course Code and Title:** Machine Learning in Economics (D200)\
-**Term:** Lent Term 2026\
+**Term:** Lent Term 2027\
 **Lecturer:** Dr. Stefan Bucher \
 **Office Hours:** Wed 3.00pm-4.00pm. Sign up [here](https://calendly.com/stefabu/office-hours)
 
-**Lectures:** Sat 11.00am-1.00pm in Meade Room, weeks 1-9  \
-**Classes:** (some) Fri 3.00-5.00pm/5.00-7.00pm in Room 7 (Lecture Block), weeks 3, 5, 7, and 9.  \
+**Lectures:** Wed 11.00am-1.00pm in Meade Room, weeks 1-9  \
+**Classes:** Fri 3.00-5.00pm/5.00-7.00pm in Room 7 (Lecture Block), weeks 3, 5, 7, and 9, and possibly week 8.  \
 **Teaching Assistant:** Vahan Geghamyan (vg400@cam.ac.uk) 
 
 **Course Website:** <https://github.com/MLecon/ML-in-Economics> \
@@ -101,7 +101,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 
 ## Part 1: Supervised Machine Learning
 
-### Fundamentals and Linear Regression - Week 1 (24 January 2026)
+### Fundamentals and Linear Regression - Week 1 (20 January 2027)
 
 -   A brief overview of AI, ML, and Deep Learning [@prince2023, Chapter 1]
 -   Linear Regression: Minimizing mean-squared error using matrix notation [@prince2023, Chapter 2]
@@ -111,7 +111,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
   -   Helpful Refresher: [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)  
 
 
-### Model Fitting and Optimization - Week 2 (31 January 2026)
+### Model Fitting and Optimization - Week 2 (27 January 2027)
 
 -   Classification and discrete choice 
 -   Loss functions [@prince2023, Chapter 5]
@@ -123,7 +123,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
   - Classification: discrete choice, credit/default risk, etc.
 -   Recommended viewing: [Gradient descent](https://www.3blue1brown.com/lessons/gradient-descent) 
 
-### Trees, Forests, Boosting, and Regularization - Week 3 (7 February 2026)
+### Trees, Forests, Boosting, and Regularization - Week 3 (3 February 2027)
 
 -   Regularization: Explicit and implicit regularization, dropout, transfer learning [@prince2023, Chapter 9]
 -   Nonparametric methods: CART (Classification and Regression Trees) 
@@ -145,7 +145,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 
 ## Part 2: Deep Learning, Representation Learning, and Generative AI 
 
-### Artificial Neural Networks: Shallow to Deep - Week 4 (14 February 2026)
+### Artificial Neural Networks: Shallow to Deep - Week 4 (10 February 2027)
 
 -   Nonlinear models (e.g., GLM)
 -   Shallow neural networks  [@prince2023, Chapter 3]
@@ -157,7 +157,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 
 
 
-### Representation Learning & NLP: Transformers and Foundation Models - Week 5 (21 February 2026)
+### Representation Learning & NLP: Transformers and Foundation Models - Week 5 (17 February 2027)
 
 -   Sequence and time series models: Recurrent neural networks (RNN), Hopfield network, LSTM
 -   Word embedding (e.g., Word2Vec)
@@ -176,7 +176,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 -->
 
 
-### Unsupervised Learning & Generative Models - Week 6 (28 February 2026)
+### Unsupervised Learning & Generative Models - Week 6 (24 February 2027)
 
 -   Unsupervised Learning [@prince2023, Chapter 14]
 -   Clustering and dimensionality reduction: K-means, PCA (latent space intuition)
@@ -197,7 +197,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 
 ## Part 3: Reinforcement Learning and Alignment
 
-### Reinforcement Learning - Week 7 (7 March 2026)
+### Reinforcement Learning - Week 7 (3 March 2027)
 
 -   Multi-armed bandits and bandit gradient algorithm as stochastic gradient descent [@sutton2018, Section 2.8]
 -   Reinforcement Learning: Markov Decision Processes (MDP), policies, value functions [@prince2023, Chapter 19]
@@ -216,7 +216,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 -->
 
 
-### Alignment - Week 8 (14 March 2026)
+### Alignment - Week 8 (10 March 2027)
 
 -   Supervised Finetuning (LORA)
 -   Reinforcement Learning from Human Feedback (RLHF): Reward modeling (Bradley-Terry model) for PPO, DeepSeek (GRPO), and Direct Preference Optimization (DPO)
@@ -228,7 +228,7 @@ Linear Algebra, calculus, probability theory and statistics, as well as programm
 ## Part 4: ML and Economics
 
 
-### Information-Theoretic Synthesis, ML and Economics - Week 9 (21 March 2026)
+### Information-Theoretic Synthesis, ML and Economics - Week 9 (17 March 2027)
 
 -   Review and synthesis: The information-theoretic lens as a unifying principle [@alemi2024]
 -   Unified view of supervised learning, unsupervised learning, and representation learning through KL divergence minimization
@@ -254,35 +254,37 @@ Problem sets are to be submitted in groups of up to 2 students (solo or one part
 # Assessment
 
 Assessment in the course is based entirely on the completion of a small-scale research project, which is assessed via 
-a written project report of 3 single-spaced pages (approximately 1500 words) due on 16th March 2026, and 
-an oral examination which constitutes a brief (5-7 min.) presentation (slides of presentation to be submitted on same day) and Question and Answer session held on either March 23 or 24.  
+a written project report of 3 single-spaced pages (approximately 1500 words) due on 14th April 2027, and 
+an oral examination which constitutes a brief (5-7 min.) presentation (slides of presentation to be submitted on same day) and Question and Answer session held on either April 22 or 23.  
 All elements are essential and constitute 100% weighting.
 <!--(15 minutes per student: 5-7min presentation followed by questions)-->
 <!--Schedule 30min per student: 15min for my preparation based on the report, 15min for the oral exam incl. presentation. Total effort: 20hrs over 2-3 days. In 2025 I aimed for 20min per report...-->
 
 
 # Key Dates
-24 Jan 2026
-: First Lecture
+20 Jan 2027
+: First lecture
 
-5 Feb 2026 (12 noon)
-: Problem Set 1 due <!-- distributed 23 January 2026-->
+3 Feb 2027 (12 noon)
+: Problem Set 1 due <!-- distributed 20 January 2027 -->
 
-19 Feb 2026 (12 noon)
-: Problem Set 2 due <!-- distributed 6 February 2026-->
+17 Feb 2027 (12 noon)
+: Problem Set 2 due <!-- distributed 6 February 2027 -->
 
-5 March 2026 (12 noon)
-: Problem Set 3 due <!-- distributed 20 February 2026-->
+3 Mar 2027 (12 noon)
+: Problem Set 3 due <!-- distributed 20 February 2027 -->
 
-16 Mar 2026
-: Project report due 
+17 Mar 2027 (12 noon)
+: Problem Set 4 due <!-- distributed 6 March 2027 -->
 
-23-25 Mar 2026
+14 Apr 2027
+: Project report due
+
+22-23 Apr 2027
 : Oral examination
 
 <!--
-31 Jan 2026 (lecture): Project announced
-20 March 2026 (class): final review
+27 Jan 2027 (lecture): Project announced
 -->
 
 
